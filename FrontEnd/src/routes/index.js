@@ -4,7 +4,7 @@ const About = { template: '<div>About</div>' }
 
 const routes = [
     // Modelo de Rota
-    // { path: '/', name: "Home", component: () => import('../views/home.vue')}, 
+    { path: '/', name: "Home", component: () => import('../views/home.vue')}, 
 ]
 const router = createRouter({
     history: createWebHistory(),
