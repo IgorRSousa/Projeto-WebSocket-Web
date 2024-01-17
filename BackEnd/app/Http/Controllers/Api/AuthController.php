@@ -87,12 +87,13 @@ class AuthController extends Controller
                 ], 401);
             }
 
-            $user = User::where('email', $request->email)->first();
+            $user = User::select('id', 'email', 'name')->where('email', $request->email)->first();
 
             return response()->json([
                 'status' => true,
                 'message' => 'User Logged In Successfully',
-                'token' => $user->createToken("API TOKEN")->plainTextToken
+                'token' => $user->createToken("API TOKEN")->plainTextToken,
+                'Usuario' => $user
             ], 200);
         } catch (\Throwable $th) {
             return response()->json([
